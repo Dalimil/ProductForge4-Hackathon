@@ -19,3 +19,7 @@ def list():
 	for i in interests:
 		res += i + "<br />"
 	return "List of events:<br />" + res
+
+@server.route('/admin')
+def admin():
+	return server.send_static_file('admin.html')
