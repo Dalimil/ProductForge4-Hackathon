@@ -12,6 +12,10 @@ def not_found(error):
 def main():
 	return server.send_static_file('index.html')
 
-@server.route('/list')
+@server.route('/list', methods=["GET"])
 def list():
-	return "List of events"
+	interests = request.args.get('interests', '').split(";")
+	res = ""
+	for i in interests:
+		res += i + "<br />"
+	return "List of events:<br />" + res
