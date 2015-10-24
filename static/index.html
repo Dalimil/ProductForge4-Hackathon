@@ -11,7 +11,7 @@
     	}
 
     	function fillForm(){
-			var interests = ["bowl", "chess"];
+			var interests = ["Bowling", "Chess", "Bingo", "Bridge", "Gardening", "Handcraft", "Trivia", "BBQ", "Museum"];
 			var fo = document.getElementById("interestsForm");
 			for(i=0;i<interests.length;i++){
 				fo.innerHTML += "<input type=\"checkbox\" name=\"interestOpt\" value=\""+interests[i]+"\">"+interests[i]+"<br>";
@@ -42,14 +42,7 @@
 	
 	<form onsubmit="return submitInterests();" method="POST">
 		<div id="interestsForm">
-	        <input type="checkbox" name="option1" value="Chess"> Chess<br>
-	        <input type="checkbox" name="option2" value="Bowling"> Bowling<br>
-	        <input type="checkbox" name="option3" value="Bridge"> Bridge<br>
-	        <input type="checkbox" name="option4" value="Trivia"> Trivia<br>
-	        <input type="checkbox" name="option5" value="Gardening"> Gardening<br>
-	        <input type="checkbox" name="option6" value="BBQ"> BBQ<br>
-	        <input type="checkbox" name="option7" value="Museum"> Museum<br>
-	        <input type="checkbox" name="option8" value="Arts and Crafts"> Arts and Crafts<br>
+
         </div>
         Click GO to see upcoming events in your area related to your interests.
         <button type="submit">Go</button>
