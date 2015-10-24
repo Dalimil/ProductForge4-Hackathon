@@ -20,17 +20,26 @@ def getEvents(ids):
 			eventsWithId = getEventsWithId(id)
 			if(len(eventsWithId) > 0):
 				result.extend(eventsWithId)
+
+	newlist = sorted(result, key=lambda k: k[1]) #sort by name
+	result = []
+	if(len(newlist) > 0):
+		result.append(newlist[0])
+	for i in range(1, len(newlist)):
+		if(newlist[i-1][1] != newlist[i][1]): #remove duplicates
+			result.append(newlist[i])
+
 	return result
 
 def getEventsWithId(id):
 	# select all events that have a given id/tag (interest)
 	conn = sqlite3.connect(sqlite_file)
 	c = conn.cursor()
-	#c.execute("SELECT * FROM ")
+	c.execute("SELECT * FROM Events")
 	res = c.fetchall()
 	conn.commit()
 	conn.close()
-	return []
+	return res
 
 def addEvent(data):
 	conn = sqlite3.connect(sqlite_file)
