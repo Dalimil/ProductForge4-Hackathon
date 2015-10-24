@@ -3,43 +3,57 @@
   <head>
     <meta charset="utf-8">
     <title>ProductForge4</title>
-    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
 
     <script type="text/javascript">
+    	function init(){ //after body loads
+    		fillForm();
+    	}
+
+    	function fillForm(){
+			var interests = ["bowl", "chess"];
+			var fo = document.getElementById("interestsForm");
+			for(i=0;i<interests.length;i++){
+				fo.innerHTML += "<input type=\"checkbox\" name=\"interestOpt\" value=\""+interests[i]+"\">"+interests[i]+"<br>";
+			}
+		}
+
     	function submitInterests() {
 		  alert("Code to make AJAX Call");
 		  //get all by name
 		  //redirect get: ?interests=2;4;6
-		  
+
+		  window.location.href = "/list";
 		  return false; //to prevent form submit
 		}
+
     </script>
   </head>
 
-	<body>
+	<body onload="init();">
 
 
 	<h2 id="tickboxes">
 	Please tick the boxes matching your interests
 	</h2>
 	
-	<form onsubmit="return submitInterests();" method="POST"><br>
-        <input type="checkbox" name="option1" value="Chess"> Chess<br>
-        <input type="checkbox" name="option2" value="Bowling"> Bowling<br>
-        <input type="checkbox" name="option3" value="Bridge"> Bridge<br>
-        <input type="checkbox" name="option4" value="Trivia"> Trivia<br>
-        <input type="checkbox" name="option5" value="Gardening"> Gardening<br>
-        <input type="checkbox" name="option6" value="BBQ"> BBQ<br>
-        <input type="checkbox" name="option7" value="Museum"> Museum<br>
-        <input type="checkbox" name="option8" value="Arts and Crafts"> Arts and Crafts<br>
+	<form onsubmit="return submitInterests();" method="POST">
+		<div id="interestsForm">
+	        <input type="checkbox" name="option1" value="Chess"> Chess<br>
+	        <input type="checkbox" name="option2" value="Bowling"> Bowling<br>
+	        <input type="checkbox" name="option3" value="Bridge"> Bridge<br>
+	        <input type="checkbox" name="option4" value="Trivia"> Trivia<br>
+	        <input type="checkbox" name="option5" value="Gardening"> Gardening<br>
+	        <input type="checkbox" name="option6" value="BBQ"> BBQ<br>
+	        <input type="checkbox" name="option7" value="Museum"> Museum<br>
+	        <input type="checkbox" name="option8" value="Arts and Crafts"> Arts and Crafts<br>
+        </div>
+        Click GO to see upcoming events in your area related to your interests.
         <button type="submit">Go</button>
 	</form>
 	
-	<h4 id="clickGO">
-	Click GO to see upcoming events in your area related to your interests
-	</h4>
 	
-	<button id="GO"> GO </button><footer>
+	<footer>
 			<hr>
 			<center>
 				<p>ProductForge4</p>
