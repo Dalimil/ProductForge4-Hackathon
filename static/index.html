@@ -45,20 +45,21 @@
 
 	</header>
 
-	<div id="mainpanel">
+	<div id="mainpanel" class="container">
 		<br>
-		<h2 id="tickboxes">
-		Please select your interests
-		</h2>
-		<br>
-	
+		<div class="row">
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8" style="text-align:center;">
+		<h3 id="tickboxes">Please select your interests</h3>
 		<form role="form" onsubmit="return submitInterests();" method="POST">
 			<div id="interestsForm">
 			</div>
 			<br>
 			<button type="submit" class="btn btn-lg btn-success">Find Events</button><br><br>
 	    </form>    
-
+	    </div>
+	    <div class="col-sm-2"></div>
+	    </div>
 	    
 	</div>
     </body>

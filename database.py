@@ -35,11 +35,7 @@ def getEventsWithId(id):
 	# select all events that have a given id/tag (interest)
 	conn = sqlite3.connect(sqlite_file)
 	c = conn.cursor()
-<<<<<<< HEAD
-	c.execute(SELECT * FROM Events WHERE ID = id)
-=======
 	c.execute("SELECT * FROM Events") #TODO
->>>>>>> 30c942f93c3fbae1aff98dbf67adefd63d6f79d4
 	res = c.fetchall()
 	conn.commit()
 	conn.close()
