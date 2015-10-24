@@ -13,3 +13,29 @@ td {
 	text-align: left;
 	font-size: 2em;
 }
+
+#header {
+         background-color: white; border: 1px solid black;
+         width: 801px; height: 50px;
+         position: relative; left: 180px;
+         text-align: center;
+        }
+#leftdiv {            
+         background-color: white; border: 1px solid black;
+         width: 100px; height: 500px;
+         position: relative; left: 180px;
+        }
+
+#mainBox{
+        background-color: white; border: 1px solid black;
+        width: 600px; height: 500px;
+        position: relative ;left: 280px; top: -500px;
+            
+        }
+#rightdiv {
+          background-color: white; border: 1px solid black;
+          width: 100px; height: 500px;
+          position: absolute; right: -100px; top: -1px;
+          }
+
+ 
