@@ -38,6 +38,6 @@ def addEvent(data):
 	c = conn.cursor()
 	c.execute('INSERT INTO Events (Name, Location, City, Description, Organiser, Time) VALUES ("{}", "{}", "{}", "{}", "{}", {})'.format(data["name"], data["location"], data["city"], data["description"], data["organiser"], data["time"]))
 	for tag in data["interests"]:
-		c.execute('INSERT INTO Matching (InterestID, EventID) VALUES ("{}", "{}")'.format(3, 5);
+		c.execute('INSERT INTO Matching (InterestID, EventID) VALUES ("{}", "{}")'.format(3, 5));
 	conn.commit()
 	conn.close()
