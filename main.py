@@ -26,16 +26,14 @@ def events():
 	interests = request.args.get('interests', '').split(";")
 	data = database.getEvents(interests)
 	events = []
-	for i in interests:
-		events.append({"Name": i, "Location": "Edinburgh"})
 	for i in data:
-		pass #todo
+		events.append({"Name": i[1], "Location": i[2], "City": i[3], "Description": i[4], "Organiser": i[5], "Time": i[6]})
 
-	return json.dumps(events)
+	return "You selected: "+" ".join(interests) +"<br /> result: "+json.dumps(events)
 
 @server.route('/addEvent', methods=["POST"])
 def add_event():
-	#database.addEvent(request.form)
+	database.addEvent(request.form)
 	return "success - added: "+request.form["name"]
 
 @server.route('/debug')
