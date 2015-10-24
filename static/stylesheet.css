@@ -1,7 +1,11 @@
 .full-width {
     display:block;
-
 }
+
+body {
+	height: 100%;
+}
+
 table {
 	margin: 5px;
 }
@@ -13,6 +17,7 @@ td {
 	text-align: left;
 	font-size: 2em;
 }
+
 
 #header {
          background-color: white; border: 1px solid black;
@@ -39,3 +44,11 @@ td {
           }
 
  
+img {
+	width: 100px;
+}
+
+#tablegrid {
+	margin-left: 20%;
+	margin-right: 20%;
+}

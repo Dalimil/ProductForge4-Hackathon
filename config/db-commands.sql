@@ -16,6 +16,3 @@ ID INTEGER PRIMARY KEY AUTOINCREMENT,
 InterestID VARCHAR(255),
 EventID VARCHAR(255)
 );
-
-#For each(interest in i)
-#SELECT * FROM Events WHERE interest LIKE '%$i%'

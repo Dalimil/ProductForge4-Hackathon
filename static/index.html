@@ -13,7 +13,7 @@
 
     <script type="text/javascript">
     	function init(){ //after body loads
-    		fillForm();
+    		//fillForm();
     	}
     	var interests = ["Bowling", "Chess", "Bingo", "Swimming", "Gardening", "Handcraft", "Trivia", "BBQ", "Museum"];
     	var selected = [0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -67,10 +67,24 @@
 		<br>
 		<div class="row">
 		<div class="col-sm-3"></div>
-		<div class="col-sm-6" style="border: solid 2px black; background-color:#D3D3D3; margin-top: 300px; text-align:center;">
+		<div id="tablegrid" class="col-sm-6" style="border: solid 2px black; background-color:#D3D3D3; position: absolute; margin-bottom: 20%; text-align:center;">
 		<h3 id="tickboxes">Select your interests</h3>
 		<form role="form" onsubmit="return submitInterests();" method="POST">
 			<table style="width:100%" id="interestsForm" >
+			<tr>
+			<td><img id="bowling" src="img/bowling.jpeg"><h6>Bowling</h6></td>
+			<td><img id="swimming" src="img/swimming.jpeg"><h6>Swimming</h6></td>
+			<td><img id="bingo" src="img/bingo.jpg"><h6>Bingo</h6></td>
+			</tr>
+			<tr>
+			<td><img id="chess" src="img/chess.jpeg"><h6>Chess</h6></td>
+			<td><img id="trivia" src="img/trivia.jpeg"><h6>Trivia</h6></td>
+			<td><img id="handcraft" src="img/handcraft.jpg"><h6>Handcraft</h6></td></tr>
+			<tr>
+			<td><img id="BBQ" src="img/BBQ.jpg"><h6>BBQ</h6></td>
+			<td><img id="gardening" src="img/gardening.jpg"><h6>Gardening</h6></td>
+			<td><img id="museum" src="img/museum.jpeg"><h6>Museum</h6></td>
+			</tr>
 			</table>
 			<br />
 			<button type="submit" class="btn btn-lg btn-success">Find Events</button><br><br>
