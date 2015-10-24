@@ -13,7 +13,7 @@
 
     <script type="text/javascript">
     	function init(){ //after body loads
-    		fillForm();
+    		//fillForm();
     	}
     	var interests = ["Bowling", "Chess", "Bingo", "Swimming", "Gardening", "Handcraft", "Trivia", "BBQ", "Museum"];
     	var selected = [0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -67,10 +67,13 @@
 		<br>
 		<div class="row">
 		<div class="col-sm-3"></div>
-		<div class="col-sm-6" style="border: solid 2px black; background-color:#D3D3D3; margin-top: 300px; text-align:center;">
+		<div class="col-sm-6" style="border: solid 2px black; background-color:#D3D3D3; margin-top: 20%; text-align:center;">
 		<h3 id="tickboxes">Select your interests</h3>
 		<form role="form" onsubmit="return submitInterests();" method="POST">
 			<table style="width:100%" id="interestsForm" >
+			<tr><td></td><td></td><td></td></tr>
+			<tr><td></td><td></td><td></td></tr>
+			<tr><td></td><td></td><td></td></tr>
 			</table>
 			<br />
 			<button type="submit" class="btn btn-lg btn-success">Find Events</button><br><br>
