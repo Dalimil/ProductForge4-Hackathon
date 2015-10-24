@@ -15,16 +15,18 @@
     	function init(){ //after body loads
     		fillForm();
     	}
-
+    	var interests = ["Bowling", "Chess", "Bingo", "Swimming", "Gardening", "Handcraft", "Trivia", "BBQ", "Museum"];
+    	var selected = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+    	var selectedC = "#33CC33"
+    	var unselectedC = "#D3D3D3"
     	function fillForm(){
-			var interests = ["Bowling", "Chess", "Bingo", "Swimming", "Gardening", "Handcraft", "Trivia", "BBQ", "Museum"];
 			var fo = document.getElementById("interestsForm");
 			var s = "";
 			for(i=0;i<interests.length;i++){
 				if(i%3 == 0){ 
 					s += "<tr>";
 				}
-				s += "<td><h1><span class=\"label label-default full-width\" class=\"interestOpt\" value=\""+interests[i]+"\">"+interests[i]+"</span></h1></td>";
+				s += '<td><div id="'+interests[i]+'" onclick=\"switchF(this, '+i+');\" class=\"interestOpt\">'+interests[i]+'</div></td>';
 				if(i%3 == 2){ 
 					s += "</tr>";
 				}
@@ -32,13 +34,20 @@
 			}
 			fo.innerHTML = s;
 		}
+		function switchF(arg, i){
+			selected[i] = !selected[i];
+			if(selected[i]){
+				arg.style.backgroundColor=selectedC;
+			}else{
+				arg.style.backgroundColor=unselectedC;
+			}
+		}
 
     	function submitInterests() {
-    		var fields = document.getElementsByName("interestOpt");
     		var query = "";
-    		for(i=0;i<fields.length;i++){
-    			if(fields[i].checked){
-    				query+= fields[i].value + ";";
+    		for(i=0;i<interests.length;i++){
+    			if(selected[i] == 1){
+    				query+= interests[i] + ";";
     			}
     		}
 		  	window.location.href = "/list?interests="+query;
@@ -49,7 +58,7 @@
   </head>
 
     <body onload="init();">
-
+	<img src="img/happy-old-people.jpg" style="position: absolute;width: 100%; left: 0px; top: 0px; z-index: -1;">
 	<header>
 
 	</header>
@@ -58,15 +67,18 @@
 		<br>
 		<div class="row">
 		<div class="col-sm-2"></div>
-		<div class="col-sm-8" style="background-color:#D3D3D3; text-align:center;">
+		<div class="col-sm-8" style="background-color:#D3D3D3; margin-top: 300px; text-align:center;">
 		<h3 id="tickboxes">Select your interests</h3>
 		<form role="form" onsubmit="return submitInterests();" method="POST">
-			<table style="width:100%" id="interestsForm">
+			<table style="width:100%" id="interestsForm" >
 			</table>
 			<button type="submit" class="btn btn-lg btn-success">Find Events</button><br><br>
 	    </form>    
+
 	    </div>
-	    <div class="col-sm-2"><img width="200%" src="img/intro-form-side.jpg"></div>
+	    <div class="col-sm-2">
+	    <!--<img width="200%" src="img/intro-form-side.jpg">-->
+	    </div>
 	    </div>
 	    
 	</div>
