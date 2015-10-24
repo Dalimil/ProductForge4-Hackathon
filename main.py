@@ -32,7 +32,15 @@ def events():
 
 @server.route('/addEvent', methods=["POST"])
 def add_event():
+	interests = request.form["interests"].split(";")
+	ar = []
+	for i in interests:
+		if(len(i) > 0):
+			ar.append(i)
+
+	request.form["interests"] = ar
 	database.addEvent(request.form)
+	
 	return "success - added: "+request.form["name"]
 
 @server.route('/debug')
