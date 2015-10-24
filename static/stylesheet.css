@@ -5,8 +5,11 @@
 table {
 	margin: 5px;
 }
-
+td {
+	border: solid 1px black;
+}
 .interestOpt {
 	display: block;
+	text-align: left;
 	font-size: 2em;
 }
