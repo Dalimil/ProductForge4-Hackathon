@@ -2,6 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="http://bootswatch.com/paper/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
     <title>ProductForge4</title>
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
     <link href='https://fonts.googleapis.com/css?family=ABeeZee' rel='stylesheet' type='text/css'>
@@ -15,7 +20,7 @@
 			var interests = ["Bowling", "Chess", "Bingo", "Bridge", "Gardening", "Handcraft", "Trivia", "BBQ", "Museum"];
 			var fo = document.getElementById("interestsForm");
 			for(i=0;i<interests.length;i++){
-				fo.innerHTML += "<input type=\"checkbox\" name=\"interestOpt\" value=\""+interests[i]+"\">"+interests[i]+"<br>";
+				fo.innerHTML += "<input type=\"checkbox\" class=\"checkbox-primary\" name=\"interestOpt\" value=\""+interests[i]+"\">"+interests[i]+"<br>";
 			}
 		}
 
@@ -47,24 +52,14 @@
 		</h2>
 		<br>
 	
-		<form onsubmit="return submitInterests();" method="POST">
+		<form role="form" onsubmit="return submitInterests();" method="POST">
 			<div id="interestsForm">
-		</div>
-		<br>
-		<div id="clickGO">
-		Click GO to see upcoming events in your area related to your interests.
-		</div>
-		<br>
-		<button type="submit">Go</button><br><br>
-	    	</form>    
+			</div>
+			<br>
+			<button type="submit" class="btn btn-lg btn-success">Find Events</button><br><br>
+	    </form>    
 
 	    
-	</div>
-	<div id="footer">
-		<hr>
-		<center>
-			<p>ProductForge4</p>
-		</center>
 	</div>
     </body>
 </html>
