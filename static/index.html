@@ -22,9 +22,11 @@
     		var fields = document.getElementsByName("interestOpt");
     		var query = "";
     		for(i=0;i<fields.length;i++){
-    			query+= fields[i].value + ";";
+    			if(fields[i].checked){
+    				query+= fields[i].value + ";";
+    			}
     		}
-		  	window.location.href = "/list?interests="+query;
+		  	//window.location.href = "/list?interests="+query;
 		  	return false;
 		}
 
