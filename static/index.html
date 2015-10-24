@@ -19,12 +19,13 @@
 		}
 
     	function submitInterests() {
-		  alert("Code to make AJAX Call");
-		  //get all by name
-		  //redirect get: ?interests=2;4;6
-
-		  window.location.href = "/list";
-		  return false; //to prevent form submit
+    		var fields = document.getElementsByName("interestOpt");
+    		var query = "";
+    		for(i=0;i<fields.length;i++){
+    			query+= fields[i].value + ";";
+    		}
+		  	window.location.href = "/list?interests="+query;
+		  	return false;
 		}
 
     </script>
