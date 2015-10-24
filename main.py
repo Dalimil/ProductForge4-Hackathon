@@ -4,8 +4,6 @@ import database
 
 server = Flask(__name__, static_url_path='')
 
-cookie_name = "userID"
-
 @server.errorhandler(404)
 def not_found(error):
     return render_template('404.html'), 404
@@ -14,7 +12,7 @@ def not_found(error):
 def main():
 	return server.send_static_file('index.html')
 
-@server.route('/list', methods=["GET"])
+@server.route('/list')
 def list():
 	return server.send_static_file('list.html')
 
@@ -37,5 +35,10 @@ def events():
 
 @server.route('/addEvent', methods=["POST"])
 def add_event():
-	database.addEvent(request.form)
-	return "success - added: "+" ".join(request.form);
+	#database.addEvent(request.form)
+	return "success - added: "+request.form["name"]
+
+@server.route('/debug')
+def debug():
+	database.addEvent({"name":"swimming", "city":"Edinburgh", "location":"new swimming pool", "description":"fun event", "organiser":"swimming centre company", "time":"1445686930", "interests":["bowling", "swimming"]})
+	return "done"
