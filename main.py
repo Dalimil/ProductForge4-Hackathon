@@ -27,15 +27,23 @@ def events():
 	events = []
 	for i in data:
 		events.append({"Name": i[1], "Location": i[2], "City": i[3], "Description": i[4], "Organiser": i[5], "Time": i[6]})
-		
+
 	return json.dumps(events)
 
 @server.route('/addEvent', methods=["POST"])
 def add_event():
+	interests = request.form["interests"].split(";")
+	ar = []
+	for i in interests:
+		if(len(i) > 0):
+			ar.append(i)
+
+	request.form["interests"] = ar
 	database.addEvent(request.form)
+	
 	return "success - added: "+request.form["name"]
 
 @server.route('/debug')
 def debug():
-	database.addEvent({"name":"swimming", "city":"Edinburgh", "location":"new swimming pool", "description":"fun event", "organiser":"swimming centre company", "time":"1445686930", "interests":["bowling", "swimming"]})
+	database.addEvent({"name":"Swimming", "city":"Edinburgh", "location":"new swimming pool", "description":"fun event", "organiser":"swimming centre company", "time":"1445686930", "interests":["bowling", "swimming"]})
 	return "done"

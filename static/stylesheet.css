@@ -1,11 +1,75 @@
-body {
+html, body {
+	display: block;
 	text-align: center;
+	background-color: rgba(150,195,7, 0.8);
+	font-family: 'ABeeZee', sans-serif;
+	height: 100%;
+	margin: 0;
+	border: 0;
+	padding 0;
+	padding: 0;
 }
 
-p{
+header {
+	display: block;
+	height: 10%;
+	/* background: url("img/playing_cards.jpg"); */
+}
+
+#mainpanel {
+	display: block;
+	background-image: url("img/playing_cards.jpg");
+	background-size: cover;
+	/* background-blend-mode: initial; */
+	height: 85%;
+}
+
+h2 {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+#tickboxes {-:5%;
+	margin-left: 33%;
+	margin-right: 33%;
+	padding: 10px 10px 10px 10px;
+	text-align: center;
+	width: 34%;
+	position: relative;
+	background-color: rgba(80, 117, 46, 0.96);
+	border: 0;
+	border-radius: 10px;
+	color: white;
+	text-shadow: 0px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+#clickGO {
+	margin-left: 20%;
+	margin-right: 20%;
+	padding: 3px 3px 3px 3px;
+	text-align: center;
+	width: 60%;
+	position: relative;
+	background-color: rgba(80, 117, 46, 0.96);
+	border: 0;
+	border-radius: 5px;
+	color: white;
+	text-shadow: 0px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+p {
 	font-size: 2em;
+	margin: 0;
+	padding: 0;
+	border: 0;
 }
 
-footer {
+#footer {
 	font-size: 0.4em;
+	position: absolute;
+	margin-bottom: 0px;
+	width: 100%;
+	height: 5%;
+	/* margin: 0px auto; */
 }
