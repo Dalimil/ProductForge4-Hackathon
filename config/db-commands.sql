@@ -1,23 +1,26 @@
 CREATE TABLE Events
 (
-EventID int,
-Name varchar(255),
-Location varchar(255),
-City varchar(255),
-Description varchar(255),
-Organiser varchar(255),
-Date DATE
+ID INTEGER PRIMARY KEY AUTOINCREMENT,
+Name VARCHAR(255),
+Location VARCHAR(255),
+City VARCHAR(255),
+Description VARCHAR(255),
+Organiser VARCHAR(255),
+Time INTEGER
 );
 
-CREATE TABLE interests
+CREATE TABLE Interests
 (
-InterestID int,
-Name varchar(255)
+ID INTEGER PRIMARY KEY AUTOINCREMENT,
+Name VARCHAR(255)
 );
 
-CREATE TABLE EventInterests
+CREATE TABLE Matching
 (
-EventInterestID int,
-InterestID int,
-EventID int
+ID INTEGER PRIMARY KEY AUTOINCREMENT,
+InterestID INTEGER,
+EventID INTEGER
 );
+
+
+

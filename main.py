@@ -22,6 +22,7 @@ def list():
 def admin():
 	return server.send_static_file('admin.html')
 
+
 @server.route('/events')
 def events():
 	interests = request.args.get('interests', '').split(";")
@@ -29,4 +30,12 @@ def events():
 	events = []
 	for i in interests:
 		events.append({"Name": i, "Location": "Edinburgh"})
+	for i in data:
+		pass #todo
+
 	return json.dumps(events)
+
+@server.route('/addEvent', methods=["POST"])
+def add_event():
+	database.addEvent(request.form)
+	return "success - added: "+" ".join(request.form);
