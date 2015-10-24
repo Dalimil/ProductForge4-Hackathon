@@ -2,11 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
-  
+    <title>ProductForge4</title>
     <link rel="stylesheet" href="stylesheet.css">
+
+    <script type="text/javascript">
+    	function submitInterests() {
+		  alert("Code to make AJAX Call");
+		  //get all by name
+		  //redirect get: ?interests=2;4;6
+		  
+		  return false; //to prevent form submit
+		}
+    </script>
   </head>
+
 	<body>
 
 
@@ -14,7 +23,7 @@
 	Please tick the boxes matching your interests
 	</h2>
 	
-	<form name="form1" action=" " method="POST"><br>
+	<form onsubmit="return submitInterests();" method="POST"><br>
         <input type="checkbox" name="option1" value="Chess"> Chess<br>
         <input type="checkbox" name="option2" value="Bowling"> Bowling<br>
         <input type="checkbox" name="option3" value="Bridge"> Bridge<br>
@@ -23,6 +32,7 @@
         <input type="checkbox" name="option6" value="BBQ"> BBQ<br>
         <input type="checkbox" name="option7" value="Museum"> Museum<br>
         <input type="checkbox" name="option8" value="Arts and Crafts"> Arts and Crafts<br>
+        <button type="submit">Go</button>
 	</form>
 	
 	<h4 id="clickGO">
