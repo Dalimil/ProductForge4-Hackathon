@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect
 import json
+import database
 
 server = Flask(__name__, static_url_path='')
 
@@ -24,6 +25,7 @@ def admin():
 @server.route('/events')
 def events():
 	interests = request.args.get('interests', '').split(";")
+	data = database.getEvents(interests)
 	events = []
 	for i in interests:
 		events.append({"Name": i, "Location": "Edinburgh"})
