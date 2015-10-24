@@ -20,7 +20,6 @@ def list():
 def admin():
 	return server.send_static_file('admin.html')
 
-
 @server.route('/events')
 def events():
 	interests = request.args.get('interests', '').split(";")
@@ -28,8 +27,8 @@ def events():
 	events = []
 	for i in data:
 		events.append({"Name": i[1], "Location": i[2], "City": i[3], "Description": i[4], "Organiser": i[5], "Time": i[6]})
-
-	return "You selected: "+" ".join(interests) +"<br /> result: "+json.dumps(events)
+		
+	return json.dumps(events)
 
 @server.route('/addEvent', methods=["POST"])
 def add_event():
