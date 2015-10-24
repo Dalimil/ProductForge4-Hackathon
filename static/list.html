@@ -1,0 +1,33 @@
+ <!DOCTYPE html>
+<html lang="en-US">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="eventsCtrl">
+<h1>Events</h1>
+
+<table>
+  <tr ng-repeat="x in events">
+    <td>{{ x.Name }}</td>
+    <td>{{ x.Location }}</td>
+  </tr>
+</table>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('eventsCtrl', function($scope, $http) {
+	tmp = window.location.href;
+	k = tmp.indexOf("?");
+	if(k == -1){
+		q = "?interests=";
+	}else{
+		q = tmp.substring(k);
+	}
+    $http.get("/events"+q).success(function (response) {$scope.events = response;});
+});
+</script>
+
+
+</body>
+</html> 

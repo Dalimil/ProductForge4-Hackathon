@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect
+import json
 
 server = Flask(__name__, static_url_path='')
 
@@ -14,12 +15,16 @@ def main():
 
 @server.route('/list', methods=["GET"])
 def list():
-	interests = request.args.get('interests', '').split(";")
-	res = ""
-	for i in interests:
-		res += i + "<br />"
-	return "List of events:<br />" + res
+	return server.send_static_file('list.html')
 
 @server.route('/admin')
 def admin():
 	return server.send_static_file('admin.html')
+
+@server.route('/events')
+def events():
+	interests = request.args.get('interests', '').split(";")
+	events = []
+	for i in interests:
+		events.append({"Name": i, "Location": "Edinburgh"})
+	return json.dumps(events)
