@@ -9,8 +9,7 @@ if not os.path.isfile(sqlite_file):
 	conn = sqlite3.connect(sqlite_file)
 	c = conn.cursor()
 	c.execute("CREATE TABLE Events ( ID INTEGER PRIMARY KEY AUTOINCREMENT, Name VARCHAR(255), Location VARCHAR(255), City VARCHAR(255), Description VARCHAR(255), Organiser VARCHAR(255), Time INTEGER );");
-	c.execute("CREATE TABLE Interests ( ID INTEGER PRIMARY KEY AUTOINCREMENT, Name VARCHAR(255) );")
-	c.execute("CREATE TABLE Matching ( ID INTEGER PRIMARY KEY AUTOINCREMENT, InterestID INTEGER, EventID INTEGER ); ")
+	c.execute("CREATE TABLE Interests ( ID INTEGER PRIMARY KEY AUTOINCREMENT, InterestID VARCHAR(255), EventID VARCHAR(255));")
 	conn.commit()
 	conn.close()
 
@@ -38,6 +37,6 @@ def addEvent(data):
 	c = conn.cursor()
 	c.execute('INSERT INTO Events (Name, Location, City, Description, Organiser, Time) VALUES ("{}", "{}", "{}", "{}", "{}", {})'.format(data["name"], data["location"], data["city"], data["description"], data["organiser"], data["time"]))
 	for tag in data["interests"]:
-		c.execute('INSERT INTO Matching (InterestID, EventID) VALUES ("{}", "{}")'.format(3, 5));
+		c.execute('INSERT INTO Interests (InterestID, EventID) VALUES ("{}", "{}")'.format(tag, data["name"]));
 	conn.commit()
 	conn.close()
