@@ -38,12 +38,17 @@ def add_event():
 		if(len(i) > 0):
 			ar.append(i)
 
-	request.form["interests"] = ar
+	z = {}
+	for i in request.form:
+		if(i != interests):
+			z[i] = request.form[i]
+
+	z["interests"] = ar
 	database.addEvent(request.form)
-	
+
 	return "success - added: "+request.form["name"]
 
 @server.route('/debug')
 def debug():
-	database.addEvent({"name":"Swimming", "city":"Edinburgh", "location":"new swimming pool", "description":"fun event", "organiser":"swimming centre company", "time":"1445686930", "interests":["bowling", "swimming"]})
+	database.addEvent({"name":"Swimming", "city":"Edinburgh", "location":"new swimming pool", "description":"fun event", "organiser":"swimming centre company", "time":"15/30/27/10/2015", "interests":["bowling", "swimming"]})
 	return "done"

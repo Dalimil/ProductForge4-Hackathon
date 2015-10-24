@@ -17,11 +17,20 @@
     	}
 
     	function fillForm(){
-			var interests = ["Bowling", "Chess", "Bingo", "Bridge", "Gardening", "Handcraft", "Trivia", "BBQ", "Museum"];
+			var interests = ["Bowling", "Chess", "Bingo", "Swimming", "Gardening", "Handcraft", "Trivia", "BBQ", "Museum"];
 			var fo = document.getElementById("interestsForm");
+			var s = "";
 			for(i=0;i<interests.length;i++){
-				fo.innerHTML += "<input type=\"checkbox\" class=\"checkbox-primary\" name=\"interestOpt\" value=\""+interests[i]+"\">"+interests[i]+"<br>";
+				if(i%3 == 0){ 
+					s += "<tr>";
+				}
+				s += "<td><h1><span class=\"label label-default full-width\" class=\"interestOpt\" value=\""+interests[i]+"\">"+interests[i]+"</span></h1></td>";
+				if(i%3 == 2){ 
+					s += "</tr>";
+				}
+
 			}
+			fo.innerHTML = s;
 		}
 
     	function submitInterests() {
@@ -49,16 +58,15 @@
 		<br>
 		<div class="row">
 		<div class="col-sm-2"></div>
-		<div class="col-sm-8" style="text-align:center;">
-		<h3 id="tickboxes">Please select your interests</h3>
+		<div class="col-sm-8" style="background-color:#D3D3D3; text-align:center;">
+		<h3 id="tickboxes">Select your interests</h3>
 		<form role="form" onsubmit="return submitInterests();" method="POST">
-			<div id="interestsForm">
-			</div>
-			<br>
+			<table style="width:100%" id="interestsForm">
+			</table>
 			<button type="submit" class="btn btn-lg btn-success">Find Events</button><br><br>
 	    </form>    
 	    </div>
-	    <div class="col-sm-2"></div>
+	    <div class="col-sm-2"><img width="200%" src="img/intro-form-side.jpg"></div>
 	    </div>
 	    
 	</div>
