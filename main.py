@@ -40,11 +40,11 @@ def add_event():
 
 	z = {}
 	for i in request.form:
-		if(i != interests):
+		if(i != "interests"):
 			z[i] = request.form[i]
 
 	z["interests"] = ar
-	database.addEvent(request.form)
+	database.addEvent(z)
 
 	return "success - added: "+request.form["name"]
 
