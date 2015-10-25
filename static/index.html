@@ -8,38 +8,33 @@
   	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
     <title>ProductForge4</title>
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
-    <link href='https://fonts.googleapis.com/css?family=ABeeZee' rel='stylesheet' type='text/css'>
+    <style>
+    a:link {
+    	color: #FFFFFF;
 
+    }
+    a:hover, a:active, a:visited {
+    	color: #cbddf5;
+    }
+
+    </style>
     <script type="text/javascript">
     	function init(){ //after body loads
     		//fillForm();
     	}
-    	var interests = ["Bowling", "Chess", "Bingo", "Swimming", "Gardening", "Handcraft", "Trivia", "BBQ", "Museum"];
+    	var interests = ["Bowls", "Swimming", "Bingo", "Chess", "Trivia", "Handcraft", "BBQ", "Gardening", "Museum"];
     	var selected = [0, 0, 0, 0, 0, 0, 0, 0, 0];
     	var selectedC = "#33CC33"
     	var unselectedC = "#D3D3D3"
-    	/*function fillForm(){
-			var fo = document.getElementById("interestsForm");
-			var s = "";
-			for(i=0;i<interests.length;i++){
-				if(i%3 == 0){ 
-					s += "<div class="row">";
-				}
-				s += '<div class="col-sm-4"><div id="'+interests[i]+'" onclick=\"switchF(this, '+i+');\" class=\"interestOpt\">'+interests[i]+'</div></div>';
-				if(i%3 == 2){ 
-					s += "</div>";
-				}
 
-			}
-			fo.innerHTML = s;
-		}*/
-		function switchF(arg, i){
+		function switchF(i){
+			arg = document.getElementsByClassName("sq-img")[i];
 			selected[i] = !selected[i];
+			console.log(arg)
 			if(selected[i]){
-				arg.style.backgroundColor=selectedC;
+				arg.style.borderColor="red";
 			}else{
-				arg.style.backgroundColor=unselectedC;
+				arg.style.borderColor="";
 			}
 		}
 
@@ -57,39 +52,46 @@
     </script>
   </head>
 
-    <body onload="init();">
-	<img width="100%" src="img/happy-old-people.jpg" style="position: absolute;width: 100%; left: 0px; top: 0px; z-index: -1;">
+    <body onload="init();" style="background-color:#233362;">
+	<img src="img/bg.jpg" style="position: absolute;width: 100%; left: 0px; top: 0px; z-index: -1;">
 	<header>
 
 	</header>
 
-	<div id="mainpanel" class="container" >
+	<div class="container" >
 		<br>
-		<div class="row">
-			<div class="col-sm-3"></div>
-			<div class="col-sm-6" style="border: solid 2px black; background-color:#0F0F0F; margin-top: 150px; text-align:center;">
-				<h4 id="tickboxes">Select your hobby</h4>
+		<div class="row" >
+			<div class="col-sm-1"></div>
+			<div class="col-sm-4">
+		    	<img src="img/logo.jpg" style="width: 100%; border-radius: 10px 10px 0px 0px"><br />
+		    	<div><img src="img/faces.png" style="width: 100%;"></div>
+		    	<div class="jumbotron" style="background-color:#131313" > 
+			    <h4>Welcome to Occasion. <br /> Simply select your interests, hit 'GO' and we will show you what events are coming up near you that you might be interested in.</h4>
+			  </div>
+		    </div>
+			<div class="col-sm-6" style="border: solid 2px black; border-radius: 10px; background-color:#131313; text-align:center;">
+				<br />
 				<form role="form" onsubmit="return submitInterests();" method="POST">
 					<div class="row" style="text-align: center">
-					<div class="col-sm-4"><a href="/list?interests=Bowling" ><img class="sq-img" width="100%" height="100%" id="Bowling" src="img/bowling.jpeg"><strong>Bowling</strong></a></div>
-					<div class="col-sm-4"><a href="/list?interests=Swimming" ><img class="sq-img" width="100%" height="100%" id="Swimming" src="img/swimming.jpeg"><strong>Swimming</strong></a></div>
-					<div class="col-sm-4"><a href="/list?interests=Bingo" ><img class="sq-img" width="100%" height="100%" id="Bingo" src="img/bingo.jpg"><strong>Bingo</strong></a></div>
+					<div class="col-sm-4"><a href="javascript:switchF(0);" ><img style="border: 5px solid; border-radius: 10px;" class="sq-img" width="100%" height="100%" id="Bowling" src="img/bowls.jpg"><strong>Bowls</strong></a></div>
+					<div class="col-sm-4"><a href="javascript:switchF(1);" ><img style="border: 5px solid; border-radius: 10px;" class="sq-img" width="100%" height="100%" id="Swimming" src="img/swimming.jpeg"><strong>Swimming</strong></a></div>
+					<div class="col-sm-4"><a href="javascript:switchF(2);" ><img style="border: 5px solid; border-radius: 10px;" class="sq-img" width="100%" height="100%" id="Bingo" src="img/bingo.jpg"><strong>Bingo</strong></a></div>
 					</div>
 					<div class="row">
-					<div class="col-sm-4"><a href="/list?interests=Chess" ><img class="sq-img" width="100%" height="100%" id="Chess" src="img/chess.jpeg"><strong>Chess</strong></a></div>
-					<div class="col-sm-4"><a href="/list?interests=Trivia" ><img class="sq-img" width="100%" height="100%" id="Trivia" src="img/trivia.jpeg"><strong>Trivia</strong></a></div>
-					<div class="col-sm-4"><a href="/list?interests=Handcraft" ><img class="sq-img" width="100%" height="100%" id="Handcraft" src="img/handcraft.jpg"><strong>Handcraft</strong></a></div>
+					<div class="col-sm-4"><a href="javascript:switchF(3);" ><img style="border: 5px solid; border-radius: 10px;" class="sq-img" width="100%" height="100%" id="Chess" src="img/chess.jpeg"><strong>Chess</strong></a></div>
+					<div class="col-sm-4"><a href="javascript:switchF(4);" ><img style="border: 5px solid; border-radius: 10px;" class="sq-img" width="100%" height="100%" id="Trivia" src="img/trivia.jpeg"><strong>Trivia</strong></a></div>
+					<div class="col-sm-4"><a href="javascript:switchF(5);" ><img style="border: 5px solid; border-radius: 10px;" class="sq-img" width="100%" height="100%" id="Handcraft" src="img/handcraft.jpg"><strong>Handcraft</strong></a></div>
 					</div>
 					<div class="row">
-					<div class="col-sm-4"><a href="/list?interests=BBQ" ><img class="sq-img" width="100%" height="100%" id="BBQ" src="img/BBQ.jpg"><strong>BBQ</strong></a></div>
-					<div class="col-sm-4"><a href="/list?interests=Gardening" ><img class="sq-img" width="100%" height="100%" id="Gardening" src="img/gardening.jpg"><strong>Gardening</strong></a></div>
-					<div class="col-sm-4"><a href="/list?interests=Museum" ><img class="sq-img" width="100%" height="100%" id="Museum" src="img/museum.jpeg"><strong>Museum</strong></a></div>
+					<div class="col-sm-4"><a href="javascript:switchF(6);" ><img style="border: 5px solid; border-radius: 10px;" class="sq-img" width="100%" height="100%" id="BBQ" src="img/BBQ.jpg"><strong>BBQ</strong></a></div>
+					<div class="col-sm-4"><a href="javascript:switchF(7);" ><img style="border: 5px solid; border-radius: 10px;" class="sq-img" width="100%" height="100%" id="Gardening" src="img/gardening.jpg"><strong>Gardening</strong></a></div>
+					<div class="col-sm-4"><a href="javascript:switchF(8);" ><img style="border: 5px solid; border-radius: 10px;" class="sq-img" width="100%" height="100%" id="Museum" src="img/museum.jpeg"><strong>Museum</strong></a></div>
 					</div>
-					<!--<button type="submit" class="btn btn-lg btn-success">Find Events</button><br><br>-->
+					<button type="submit" class="btn btn-lg btn-primary">GO</button><br><br>
 			    </form>    
 		    </div>
-		    <div class="col-sm-3">
-		    </div>
+		    
+		    <div class="col-sm-1"></div>
 	    </div>
 	    
 	</div>
