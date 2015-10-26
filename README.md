@@ -1,4 +1,6 @@
 # ProductForge4 - Hackathon (Edinburgh, 23-26th Oct 2015)
+*Please note that all the code was written as quickly as possible (in just a few days) and is therefore of poor quality and lacks any documentation.*
+
 [Product Forge 4](http://events.productforge.io/ProductForge4) is sponsored by the Scottish Government Digital Directorate, Shelter Scotland and ScotlandIS
 
 **Theme:** Digital participation in the areas of social housing, libraries and personal finance
@@ -16,7 +18,6 @@
 ![02](https://github.com/Dalimil/ProductForge4-Hackathon/blob/master/screenshots/screenshot-2.png)
 
 ## Installation
-*Please note that all the code was written as quickly as possible (in just a few days) and is therefore of poor quality and lacks any documentation.*
 #### Install required packages
 ```sh
 pip install -r requirements.txt
